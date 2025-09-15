@@ -17,7 +17,7 @@ def seleccionar_opcion(lista, titulo):
             print("Debe ingresar un número.")
 def ingresar_clientes():
     clientes = []
-    ids_usados = set()  # ✅ Guardar IDs únicos
+    ids_usados = set()
     n = int(input("¿Cuántos pacientes desea ingresar? "))
     for i in range(n):
         print(f"\nPaciente {i+1}:")
@@ -34,7 +34,6 @@ def ingresar_clientes():
         nombre = input("Nombre: ")
         servicio = seleccionar_opcion(SERVICIOS, "el servicio")
         prioridad = seleccionar_opcion(PRIORIDADES, "la prioridad")
-        # Validación de fecha
         while True:
             fecha_str = input("Fecha y hora (YYYY-MM-DD HH:MM): ")
             formatos = ["%Y-%m-%d %H:%M", "%Y-%m-%d-%H:%M"]
@@ -58,3 +57,4 @@ def exportar_csv(nombre_archivo, lista_clientes):
         for c in lista_clientes:
             writer.writerow([c.id, c.name, c.service, c.priority, c.appointment_date, c.notes])
     print(f"Archivo generado: {nombre_archivo}")
+
